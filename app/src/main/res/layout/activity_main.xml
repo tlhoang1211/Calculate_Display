@@ -20,7 +20,7 @@
         android:padding="10dp"
         android:textColor="#000"
         android:textSize="50sp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/digital"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -39,7 +39,8 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/c"
@@ -51,7 +52,8 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/bs"
@@ -63,7 +65,8 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/div"
@@ -75,7 +78,8 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -94,7 +98,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/eight"
@@ -106,7 +111,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/nine"
@@ -118,7 +124,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/mul"
@@ -130,7 +137,8 @@
             android:textSize="20sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -149,7 +157,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/five"
@@ -161,7 +170,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/six"
@@ -173,7 +183,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/sub"
@@ -185,7 +196,8 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -205,7 +217,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/two"
@@ -217,7 +230,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/three"
@@ -229,7 +243,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/add"
@@ -241,7 +256,8 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -260,7 +276,8 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/zero"
@@ -272,7 +289,8 @@
             android:textSize="30sp"
             android:background="#efefef"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/dot"
@@ -284,7 +302,8 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
 
         <Button
             android:id="@+id/equal"
@@ -296,6 +315,7 @@
             android:textSize="30sp"
             android:background="#dedede"
             android:onClick="ButtonClick"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:fontFamily="@font/digital"/>
     </LinearLayout>
 </LinearLayout>

@@ -7,12 +7,34 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView screen;
-    private Button zero, one, two, three, four, five, six, seven, eight, nine, mul, div, add, sub, equal, dot, lunisolar, ce, c, bs;
+    private Button zero;
+    private Button one;
+    private Button two;
+    private Button three;
+    private Button four;
+    private Button five;
+    private Button six;
+    private Button seven;
+    private Button eight;
+    private Button nine;
+    private Button mul;
+    private Button div;
+    private Button add;
+    private Button sub;
+    private Button equal;
+    private Button dot;
+    private Button lunisolar;
+    private Button ce;
+    private Button c;
+    private Button bs;
     private String input, answer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +63,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ButtonClick(View view) {
-        Button button = (Button) view;
-        String data = button.getText().toString();
+            Button button = (Button) view;
+            String data = button.getText().toString();
             switch (data) {
                 case "CE":
-                    if (isNumeric(input.charAt(input.length() - 1))) {
-                        input = input.substring(0, input.length() - 1);
-                    } else {
-                        input = input + "";
+                    try {
+                        if (input.length() == 1) {
+                            input = "";
+                        } else if (isNumeric(input.charAt(input.length() - 1))) {
+                            input = input.substring(0, input.length() - 1);
+                        } else {
+                            input = input + "";
+                        }
+                    } catch (Exception e) {
+                        input = "";
                     }
                     break;
                 case "C":
                     input = "";
                     break;
                 case "BS":
-                    input = input.substring(0, input.length() - 1);
+                    try {
+                        if(input.length() == 1) {
+                            input = "";
+                        } else {
+                            input = input.substring(0, input.length() - 1);
+                        }
+                    } catch (Exception e) {
+                        input = "";
+                    }
                     break;
                 case "x":
                     Solve();
