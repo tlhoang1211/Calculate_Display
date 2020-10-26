@@ -1,4 +1,4 @@
-package com.example.mycalculator;
+package com.example.homework2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Arrays;
 
-
-public class MainActivity extends AppCompatActivity {
+public class Calculator extends AppCompatActivity {
 
     private TextView screen;
     private Button zero;
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.calculator_layout);
         screen = findViewById(R.id.screen);
         zero = findViewById(R.id.zero);
         one = findViewById(R.id.one);

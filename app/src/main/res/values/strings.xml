@@ -1,8 +1,19 @@
 <resources>
-    <string name="app_name">My_Calculator</string>
+    <string name="app_name">Homework2</string>
     <string name="ac">AC</string>
     <string name="c">C</string>
     <string name="bs">BS</string>
     <string name="ce">CE</string>
     <string name="x">x</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="birthday">Birthday</string>
+    <string name="address">Address</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="select">Select</string>
+    <string name="term">I agree to Terms of Use</string>
 </resources>

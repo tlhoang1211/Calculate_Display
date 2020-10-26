@@ -1,4 +1,4 @@
-package com.example.mycalculator;
+package com.example.homework2;
 
 import android.content.Context;
 
