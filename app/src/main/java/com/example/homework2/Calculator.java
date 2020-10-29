@@ -4,179 +4,171 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
+public class Calculator extends AppCompatActivity implements View.OnClickListener {
 
-public class Calculator extends AppCompatActivity {
+    private int op1, op2;   // Toan hang 1 va 2
+    private int op;         // Toan tu: 1 - add, 2 - sub, 3 - mul, 4 - div
+    private int state;      // Trang thai: 1 - nhap op1, 2 - nhap op2
 
-    private TextView screen;
-    private Button zero;
-    private Button one;
-    private Button two;
-    private Button three;
-    private Button four;
-    private Button five;
-    private Button six;
-    private Button seven;
-    private Button eight;
-    private Button nine;
-    private Button mul;
-    private Button div;
-    private Button add;
-    private Button sub;
-    private Button equal;
-    private Button dot;
-    private Button lunisolar;
-    private Button ce;
-    private Button c;
-    private Button bs;
-    private String input, answer;
+    TextView textResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator_layout);
-        screen = findViewById(R.id.screen);
-        zero = findViewById(R.id.zero);
-        one = findViewById(R.id.one);
-        two = findViewById(R.id.two);
-        three = findViewById(R.id.three);
-        four = findViewById(R.id.four);
-        five = findViewById(R.id.five);
-        six = findViewById(R.id.six);
-        seven = findViewById(R.id.seven);
-        eight = findViewById(R.id.eight);
-        nine = findViewById(R.id.nine);
-        mul = findViewById(R.id.mul);
-        div = findViewById(R.id.div);
-        add = findViewById(R.id.add);
-        sub = findViewById(R.id.sub);
-        equal = findViewById(R.id.equal);
-        dot = findViewById(R.id.dot);
-        lunisolar = findViewById(R.id.lunisolar);
-        ce = findViewById(R.id.ce);
-        c = findViewById(R.id.c);
-        bs = findViewById(R.id.bs);
+
+        state = 1;
+        op = 0;
+        op1 = 0;
+        op2 = 0;
+
+        textResult = findViewById(R.id.text_result);
+
+        findViewById(R.id.btn_0).setOnClickListener(this);
+        findViewById(R.id.btn_1).setOnClickListener(this);
+        findViewById(R.id.btn_2).setOnClickListener(this);
+        findViewById(R.id.btn_3).setOnClickListener(this);
+        findViewById(R.id.btn_4).setOnClickListener(this);
+        findViewById(R.id.btn_5).setOnClickListener(this);
+        findViewById(R.id.btn_6).setOnClickListener(this);
+        findViewById(R.id.btn_7).setOnClickListener(this);
+        findViewById(R.id.btn_8).setOnClickListener(this);
+        findViewById(R.id.btn_9).setOnClickListener(this);
+
+        findViewById(R.id.btn_add).setOnClickListener(this);
+        findViewById(R.id.btn_sub).setOnClickListener(this);
+        findViewById(R.id.btn_mul).setOnClickListener(this);
+        findViewById(R.id.btn_div).setOnClickListener(this);
+
+        findViewById(R.id.btn_equal).setOnClickListener(this);
+
+        findViewById(R.id.btn_rev).setOnClickListener(this);
+        findViewById(R.id.btn_c).setOnClickListener(this);
+        findViewById(R.id.btn_ce).setOnClickListener(this);
+        findViewById(R.id.btn_bs).setOnClickListener(this);
     }
 
-    public void ButtonClick(View view) {
-            Button button = (Button) view;
-            String data = button.getText().toString();
-            switch (data) {
-                case "CE":
-                    try {
-                        if (input.length() == 1) {
-                            input = "";
-                        } else if (isNumeric(input.charAt(input.length() - 1))) {
-                            input = input.substring(0, input.length() - 1);
-                        } else {
-                            input = input + "";
-                        }
-                    } catch (Exception e) {
-                        input = "";
-                    }
-                    break;
-                case "C":
-                    input = "";
-                    break;
-                case "BS":
-                    try {
-                        if(input.length() == 1) {
-                            input = "";
-                        } else {
-                            input = input.substring(0, input.length() - 1);
-                        }
-                    } catch (Exception e) {
-                        input = "";
-                    }
-                    break;
-                case "x":
-                    Solve();
-                    input += "*";
-                    break;
-                case "=":
-                    Solve();
-                    answer = input;
-                    break;
-                case "+/-":
-                    if (input.startsWith("-")) {
-                        input = input.replace(input.substring(0, 1), "");
-                    } else {
-                        input = "-" + input;
-                    }
-                    break;
-                default:
-                    if (input == null) {
-                        input = "";
-                    }
-                    if (data.equals("+") || data.equals("-") || data.equals("/")) {
-                        Solve();
-                    }
-                    input += data;
-            }
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
 
-            screen.setText(input);
+        if (id == R.id.btn_0)
+            addDigit(0);
+        else if (id == R.id.btn_1)
+            addDigit(1);
+        else if (id == R.id.btn_2)
+            addDigit(2);
+        else if (id == R.id.btn_3)
+            addDigit(3);
+        else if (id == R.id.btn_4)
+            addDigit(4);
+        else if (id == R.id.btn_5)
+            addDigit(5);
+        else if (id == R.id.btn_6)
+            addDigit(6);
+        else if (id == R.id.btn_7)
+            addDigit(7);
+        else if (id == R.id.btn_8)
+            addDigit(8);
+        else if (id == R.id.btn_9)
+            addDigit(9);
+        else if (id == R.id.btn_add)
+            selectOperator(1);
+        else if (id == R.id.btn_sub)
+            selectOperator(2);
+        else if (id == R.id.btn_mul)
+            selectOperator(3);
+        else if (id == R.id.btn_div)
+            selectOperator(4);
+        else if (id == R.id.btn_equal)
+            calculateResult();
+        else if (id == R.id.btn_bs)
+            removeDigit();
+        else if (id == R.id.btn_ce)
+            clearEntry();
+        else if (id == R.id.btn_c)
+            clearOperator();
     }
 
-    public void Solve() {
-            if (input.split("\\*").length == 2) {
-                String[] number = input.split("\\*");
-                try {
-                    double mul = Double.parseDouble(number[0]) * Double.parseDouble(number[1]);
-                    input = mul + "";
-                } catch (Exception e) {
-                    //Toggle Error
-                }
-            } else if (input.split("/").length == 2) {
-                String[] number = input.split("/");
-                try {
-                    double div = Double.parseDouble(number[0]) / Double.parseDouble(number[1]);
-                    input = div + "";
-                } catch (Exception e) {
-                    //Toggle Error
-                }
-            } else if (input.split("\\+").length == 2) {
-                String[] number = input.split("\\+");
-                try {
-                    double add = Double.parseDouble(number[0]) + Double.parseDouble(number[1]);
-                    input = add + "";
-                } catch (Exception e) {
-                    //Toggle Error
-                }
-            } else if (input.split("-").length > 1) {
-                String[] number = input.split("-");
-                if (number[0].equals("") && number.length == 2) {
-                    number[0] = 0 + "";
-                }
-                try {
-                    double sub = 0;
-                    if (number.length == 2) {
-                        sub = Double.parseDouble(number[0]) - Double.parseDouble(number[1]);
-                    } else if (number.length == 3) {
-                        sub = -Double.parseDouble(number[1]) - Double.parseDouble(number[2]);
-                    }
-                    input = sub + "";
-                } catch (Exception e) {
-                    //Toggle Error
-                }
-            }
-
-            String[] n = input.split("\\.");
-            if (n.length > 1) {
-                if (n[1].equals("0")) {
-                    input = n[0];
-                }
-            }
-            screen.setText(input);
+    private void removeDigit() {
+        if (state == 1) {
+            op1 = op1 / 10;
+            textResult.setText(String.valueOf(op1));
+        } else {
+            op2 = op2 / 10;
+            textResult.setText(String.valueOf(op2));
+        }
     }
 
-    public static boolean isNumeric(Character character) {
-        try {
-            Double.parseDouble(String.valueOf(character));
-            return true;
-        } catch(NumberFormatException e){
-            return false;
+    private void clearEntry() {
+        if (state == 1) {
+            op1 = 0;
+            textResult.setText(String.valueOf(op1));
+        } else {
+            op2 = 0;
+            textResult.setText(String.valueOf(op2));
+        }
+    }
+
+    private void clearOperator() {
+        // Reset
+        state = 1;
+        op1 = 0;
+        op2 = 0;
+        op = 0;
+
+        textResult.setText(String.valueOf(op1));
+    }
+
+    private void calculateResult() {
+        int result = 0;
+        if (op == 1)
+            result = op1 + op2;
+        else if (op == 2)
+            result = op1 - op2;
+        else if (op == 3)
+            result = op1 * op2;
+        else if (op == 4) {
+            if (op2 == 0) {
+                // Khong thuc hien duoc phep chia
+                textResult.setText("ERROR!");
+
+                // Reset
+                state = 1;
+                op1 = 0;
+                op2 = 0;
+                op = 0;
+
+                return;
+            } else {
+                result = op1 / op2;
+            }
+        }
+
+        textResult.setText(String.valueOf(result));
+
+        // Reset
+        state = 1;
+        op1 = 0;
+        op2 = 0;
+        op = 0;
+    }
+
+    private void selectOperator(int operator) {
+        op = operator;
+        state = 2;
+        textResult.setText(String.valueOf(op2));
+    }
+
+    private void addDigit(int digit) {
+        if (state == 1) {
+            op1 = op1 * 10 + digit;
+            textResult.setText(String.valueOf(op1));
+        } else {
+            op2 = op2 * 10 + digit;
+            textResult.setText(String.valueOf(op2));
         }
     }
 }
